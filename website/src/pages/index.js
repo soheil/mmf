@@ -13,11 +13,12 @@ import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import useThemeContext from '@theme/hooks/useThemeContext';
 import styles from './styles.module.css';
 
 const features = [
   {
-    title: <>Less Boilerplate</>,
+    title: 'Less Boilerplate',
     imageUrl: 'img/boilerplate.svg',
     description: (
       <>
@@ -29,7 +30,7 @@ const features = [
     ),
   },
   {
-    title: <>Powered by PyTorch</>,
+    title: 'Powered by PyTorch',
     imageUrl: 'img/pytorch_logo.svg',
     description: (
       <>
@@ -40,7 +41,7 @@ const features = [
     ),
   },
   {
-    title: <>Modular and Composable</>,
+    title: 'Modular and Composable',
     imageUrl: 'img/puzzle_pieces.svg',
     description: (
       <>
@@ -52,6 +53,19 @@ const features = [
     ),
   },
 ];
+
+function BannerImage() {
+  const {isDarkTheme} = useThemeContext();
+  const logoWhite = useBaseUrl('img/logo_white_f.png');
+  const logo = useBaseUrl('img/logo.png');
+  return (
+    <img
+      className={classnames(styles.heroImg)}
+      src={isDarkTheme ? logoWhite : logo}
+      alt="MMF Logo"
+    />
+  );
+}
 
 function Feature({imageUrl, title, description}) {
   const imgUrl = useBaseUrl(imageUrl);
@@ -73,16 +87,15 @@ function Home() {
   const {siteConfig = {}} = context;
   return (
     <Layout
-      title={`${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      title=""
+      description={
+        'MMF is a modular framework powered by PyTorch for multimodal vision and ' +
+        'language research from Facebook AI Research'
+      }>
       <header className={classnames('hero hero--primary', styles.heroBanner)}>
         <div className="container">
           <div className="hero__title">
-            <img
-              className={classnames(styles.heroImg)}
-              src="img/logo.svg"
-              alt="MMF Logo"
-            />
+            <BannerImage />
           </div>
           <p className="hero__subtitle">{siteConfig.tagline}</p>
           <div className={styles.buttons}>
@@ -91,7 +104,7 @@ function Home() {
                 'button button--primary button--lg',
                 styles.getStarted,
               )}
-              to={useBaseUrl('docs/hello')}>
+              to={useBaseUrl('docs')}>
               Get Started
             </Link>
           </div>
@@ -102,9 +115,9 @@ function Home() {
           <section className={styles.features}>
             <div className="container">
               <div className="row">
-                {features.map(({title, imageUrl, description}) => (
+                {features.map(({title, imageUrl, description}, idx) => (
                   <Feature
-                    key={title}
+                    key={`feature${idx.toString()}`}
                     title={title}
                     imageUrl={imageUrl}
                     description={description}
