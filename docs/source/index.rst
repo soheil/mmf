@@ -92,6 +92,7 @@ If you use MMF in your work, please cite:
    tutorials/dataset
    tutorials/late_fusion
    tutorials/mmf_bert
+   tutorials/checkpointing
 
 .. toctree::
    :maxdepth: 1
