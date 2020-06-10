@@ -1,4 +1,4 @@
-# Quickstart [![](https://circleci.com/gh/facebookresearch/mmf.svg?style=svg)](https://circleci.com/gh/facebookresearch/mmf)
+# Quickstart
 
 **Authors**: Amanpreet Singh
 
@@ -33,21 +33,6 @@ mmf_predict config=projects/m4c/configs/textvqa/defaults.yaml datasets=textvqa m
 For running inference on `val` set, use `run_type=val` and rest of the arguments remain same. Check more details in [pretrained models](pretrained_models) section.
 
 These commands should be enough to get you started with training and performing inference using MMF.
-
-## Citation
-
-If you use MMF in your work, please cite:
-
-
-```text
-@inproceedings{singh2019pythia,
-  title={Pythia-a platform for vision \& language research},
-  author={Singh, Amanpreet and Natarajan, Vivek and Jiang, Yu and Chen, Xinlei and Shah, Meet and Rohrbach, Marcus and Batra, Dhruv and Parikh, Devi},
-  booktitle={SysML Workshop, NeurIPS},
-  volume={2018},
-  year={2019}
-}
-```
 
 ## Next steps
 
